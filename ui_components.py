@@ -283,6 +283,10 @@ def load_css():
         .exercise-detail { flex-basis: 40%; }
         .exercise-header { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
+    /* Hide all right-side header elements */
+    header [data-testid="stToolbar"], header div[role="group"] {
+    display: none !important;
+    }
     
     </style>
     """, unsafe_allow_html=True)
@@ -644,3 +648,4 @@ def display_results():
         st.error("❌ Could not parse the workout plan. Please try again.")
         with st.expander("View Raw Workout Plan"):
             st.text_area("Raw Workout Plan", value=st.session_state.workout_plan, height=400)
+
